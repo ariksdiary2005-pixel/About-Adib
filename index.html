@@ -6,6 +6,16 @@
   <meta name="theme-color" content="#10120f">
   <meta name="description" content="The personal portfolio of Adnan Khan Adib — community initiatives, education, projects and ideas.">
   <title>Adnan Khan Adib — Portfolio</title>
+  .profile-photo {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid #c5f467;
+  display: block;
+  margin: 0 auto;
+}
   <style>
     :root {
       --bg: #10120f;
@@ -163,11 +173,13 @@
             <a class="button" href="#projects">Explore my work <span>↘</span></a>
             <a class="button secondary" href="#about">A little about me</a>
           </div>
-        </div>
-        <div class="hero-art reveal delay-1" aria-label="Abstract letter A artwork">
-          <div class="art-label"><span>Personal portfolio</span><span>Bangladesh · 01</span></div>
-        </div>
-      </div>
+           <div class="hero-art reveal delay-1">
+  <img
+    src="profile.jpg"
+    alt="Adnan Khan Adib"
+    class="profile-photo"
+  >
+           </div>
       <div class="scroll-note">Scroll to explore ↓</div>
     </section>
 
@@ -249,6 +261,13 @@
           <p class="section-intro">A growing record of initiatives, lessons and milestones. Add dates and details as your journey develops.</p>
         </div>
         <div class="timeline reveal">
+          <div class="timeline-row">
+  <time>Education</time>
+  <div>
+    <h3>BSS (Honours) in Political Science</h3>
+    <p>Session: 2023–2024</p>
+  </div>
+          </div>
           <div class="timeline-row"><time>2024 — Present</time><div><h3>Boi Dorkar Bhadeswar</h3><p>Building a student-focused volunteer initiative around books, educational guidance and practical support.</p></div></div>
           <div class="timeline-row"><time>2025 — Present</time><div><h3>Community collaboration</h3><p>Supporting local initiatives and exploring ways for volunteers, institutions and supporters to work together.</p></div></div>
           <div class="timeline-row"><time>Ongoing</time><div><h3>Learning, creating, improving</h3><p>Developing skills in communication, project planning, technology and community-led problem solving.</p></div></div>
@@ -260,7 +279,13 @@
       <div class="wrap">
         <div class="contact-box reveal">
           <div><div class="kicker">05 / Contact</div><h2>Let’s make something meaningful.</h2><p>Open to thoughtful conversations, collaborations, ideas and opportunities that create positive impact.</p></div>
-          <a class="button dark" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+          <a class="button dark" href="mailto:akadibkhan01@gmail.com">Email me ↗</a>
+          <a class="button dark"
+   href="https://www.facebook.com/adnan.khan.adib.2025"
+   target="_blank"
+   rel="noopener noreferrer">
+   Facebook ↗
+          </a>
         </div>
       </div>
     </section>
