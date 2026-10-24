@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="The personal portfolio of Adnan Khan Adib — community initiatives, education, projects and ideas.">
+  <title>Adnan Khan Adib — Portfolio</title>
+  <style>
+    :root {
+      --bg: #10120f;
+      --panel: #171a16;
+      --panel-2: #1d211b;
+      --text: #f4f5ee;
+      --muted: #a5aa9e;
+      --line: rgba(244,245,238,.13);
+      --accent: #c7f36b;
+      --accent-ink: #17200a;
+      --max: 1160px;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse at 80% 8%, rgba(199,243,107,.08), transparent 34%),
+                  radial-gradient(ellipse at 5% 50%, rgba(119,147,91,.06), transparent 35%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px);
+      background: rgba(16,18,15,.82); border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.04rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: .91rem; }
+    .nav-links a:hover, .text-link:hover { color: var(--accent); }
+    .nav-cta, .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border: 1px solid var(--accent); border-radius: 999px; padding: 11px 17px;
+      background: var(--accent); color: var(--accent-ink); font-weight: 750; font-size: .9rem;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .nav-cta:hover, .button:hover { transform: translateY(-3px); background: transparent; color: var(--accent); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 12px; padding: 9px 12px; font-size: 1.1rem; }
+    .hero { min-height: 680px; display: grid; align-items: center; padding: 100px 0 90px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 58px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 800; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(199,243,107,.1); }
+    h1 { font-size: clamp(3.5rem, 8.5vw, 7.6rem); line-height: .93; letter-spacing: -.085em; margin: 25px 0; font-weight: 850; }
+    h1 .outline { color: transparent; -webkit-text-stroke: 1px rgba(244,245,238,.72); }
+    .hero-copy { max-width: 600px; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.17rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button.secondary { background: transparent; color: var(--text); border-color: var(--line); }
+    .button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-art { aspect-ratio: .84; min-height: 370px; border: 1px solid var(--line); border-radius: 48% 48% 25px 25px; position: relative; overflow: hidden; background: linear-gradient(145deg,#272d20,#141713 62%); }
+    .hero-art::before { content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%; border: 1px solid rgba(199,243,107,.42); top: 12%; left: 50%; transform: translateX(-50%); box-shadow: 0 0 0 34px rgba(199,243,107,.025), 0 0 0 70px rgba(199,243,107,.02); }
+    .hero-art::after { content: "A"; position: absolute; left: 50%; top: 48%; transform: translate(-50%,-50%); font-size: clamp(9rem, 21vw, 17rem); line-height: 1; font-weight: 900; letter-spacing: -.1em; color: var(--accent); text-shadow: 0 12px 70px rgba(199,243,107,.16); }
+    .art-label { position: absolute; bottom: 22px; left: 24px; right: 24px; display: flex; justify-content: space-between; gap: 12px; font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .scroll-note { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+    section { padding: 105px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 42px; }
+    .kicker { color: var(--accent); font-size: .75rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; }
+    h2 { margin: 10px 0 0; font-size: clamp(2.2rem, 5vw, 4.4rem); letter-spacing: -.07em; line-height: 1; }
+    .section-intro { max-width: 420px; color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .about-stamp { background: var(--accent); color: var(--accent-ink); border-radius: var(--radius); padding: 30px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(-2deg); }
+    .about-stamp strong { font-size: clamp(2.4rem, 5vw, 4.6rem); letter-spacing: -.08em; line-height: .95; }
+    .about-stamp span { font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
+    .about-text { color: var(--muted); font-size: 1.08rem; }
+    .about-text p:first-child { margin-top: 0; }
+    .text-link { color: var(--text); border-bottom: 1px solid var(--accent); padding-bottom: 4px; font-weight: 700; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(150deg,rgba(255,255,255,.035),transparent 65%); min-height: 300px; display: flex; flex-direction: column; transition: transform .25s ease, border-color .25s ease; }
+    .project-card:hover { transform: translateY(-7px); border-color: rgba(199,243,107,.55); }
+    .project-top { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; }
+    .project-symbol { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: rgba(199,243,107,.12); color: var(--accent); font-size: 1.4rem; }
+    .project-card h3 { margin: 28px 0 10px; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.05; letter-spacing: -.05em; }
+    .project-card p { color: var(--muted); margin: 0 0 25px; max-width: 490px; }
+    .project-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: .88rem; font-weight: 700; }
+    .arrow { color: var(--accent); font-size: 1.35rem; }
+    .impact { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .impact-item { padding: 28px; border-right: 1px solid var(--line); }
+    .impact-item:last-child { border-right: 0; }
+    .impact-item strong { display: block; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.07em; color: var(--accent); line-height: 1.1; }
+    .impact-item span { display: block; color: var(--muted); margin-top: 10px; font-size: .92rem; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-row { display: grid; grid-template-columns: 150px 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .timeline-row time { color: var(--accent); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+    .timeline-row h3 { margin: 0 0 5px; font-size: 1.25rem; }
+    .timeline-row p { margin: 0; color: var(--muted); }
+    .contact-box { padding: clamp(28px, 6vw, 65px); border-radius: 28px; background: var(--accent); color: var(--accent-ink); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 25px; }
+    .contact-box .kicker { color: rgba(23,32,10,.7); }
+    .contact-box h2 { max-width: 700px; }
+    .contact-box p { max-width: 520px; margin-bottom: 0; }
+    .button.dark { background: var(--accent-ink); color: var(--text); border-color: var(--accent-ink); white-space: nowrap; }
+    .button.dark:hover { background: transparent; color: var(--accent-ink); }
+    footer { padding: 28px 0; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .12s; } .delay-2 { transition-delay: .22s; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 780px) {
+      .wrap { width: min(var(--max), calc(100% - 32px)); }
+      .nav-inner { min-height: 68px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-cta { display: none; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 20px 22px 24px; background: #151813; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 18px; }
+      .nav-links.open { display: flex; }
+      .hero { min-height: auto; padding: 76px 0 100px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-art { max-width: 370px; width: 100%; min-height: 340px; margin-inline: auto; }
+      .scroll-note { display: none; }
+      section { padding: 76px 0; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 34px; }
+      .about-stamp { min-height: 230px; max-width: 460px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .impact { grid-template-columns: 1fr; }
+      .impact-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .impact-item:last-child { border-bottom: 0; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+      .contact-box { grid-template-columns: 1fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home" aria-label="Adnan Khan Adib home">ADNAN<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#impact">Impact</a>
+        <a href="#journey">Journey</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Let’s connect ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Community · Education · Ideas</div>
+          <h1 class="reveal">Adnan Khan<br><span class="outline">Adib.</span></h1>
+          <p class="hero-copy reveal delay-1">Building community-led initiatives, supporting learners, and turning meaningful ideas into action.</p>
+          <div class="hero-actions reveal delay-2">
+            <a class="button" href="#projects">Explore my work <span>↘</span></a>
+            <a class="button secondary" href="#about">A little about me</a>
+          </div>
+        </div>
+        <div class="hero-art reveal delay-1" aria-label="Abstract letter A artwork">
+          <div class="art-label"><span>Personal portfolio</span><span>Bangladesh · 01</span></div>
+        </div>
+      </div>
+      <div class="scroll-note">Scroll to explore ↓</div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">01 / About</div><h2>People first.<br>Purpose always.</h2></div>
+          <p class="section-intro">I believe small, consistent efforts can create meaningful change when people work together.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-stamp reveal"><span>A personal principle</span><strong>Ideas are<br>better in<br>action.</strong><span>Learn · Build · Contribute</span></div>
+          <div class="about-text reveal delay-1">
+            <p>I’m Adnan Khan Adib, a student and community initiative builder from Bangladesh. My interests include education, youth engagement, social impact, communication and practical uses of technology.</p>
+            <p>Through volunteer-led initiatives, I work to help students access learning resources, guidance and opportunities. I’m interested in building projects that are useful, transparent and sustainable—not just visible.</p>
+            <p>Outside project work, I enjoy exploring new ideas, learning, and finding better ways to turn plans into practical outcomes.</p>
+            <a class="text-link" href="#contact">Have an idea to share? Let’s talk ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">02 / Selected work</div><h2>Projects with<br>a purpose.</h2></div>
+          <p class="section-intro">A selection of community and reading initiatives I help build. More projects and details can be added over time.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-top"><span>Education · Community</span><span>01</span></div>
+            <div class="project-symbol" aria-hidden="true">↗</div>
+            <h3>Boi Dorkar Bhadeswar</h3>
+            <p>A volunteer-led education initiative helping students access books, learning materials and educational guidance.</p>
+            <div class="project-foot"><a href="https://sites.google.com/view/boi-dorkar/home" target="_blank" rel="noopener noreferrer">Visit initiative ↗</a><span class="arrow">↗</span></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-top"><span>Reading · Knowledge</span><span>02</span></div>
+            <div class="project-symbol" aria-hidden="true">⌁</div>
+            <h3>Pathok Station</h3>
+            <p>A community reading initiative built around sharing books and making non-academic reading more accessible.</p>
+            <div class="project-foot"><a href="#contact">Learn more ↗</a><span class="arrow">↗</span></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-top"><span>Community · Collaboration</span><span>03</span></div>
+            <div class="project-symbol" aria-hidden="true">◎</div>
+            <h3>Community Engagement</h3>
+            <p>Working with local people and organisations to support constructive, student-centred community activities.</p>
+            <div class="project-foot"><a href="#contact">Connect about a project ↗</a><span class="arrow">↗</span></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-top"><span>Ideas · Learning</span><span>04</span></div>
+            <div class="project-symbol" aria-hidden="true">✳</div>
+            <h3>Ideas in Progress</h3>
+            <p>A space for future experiments, research, writing and digital projects. This section can grow with your work.</p>
+            <div class="project-foot"><a href="#journey">See my journey ↗</a><span class="arrow">↗</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">03 / Impact snapshot</div><h2>Small actions.<br>Real support.</h2></div>
+          <p class="section-intro">A few reported milestones from the education initiative. Update these figures whenever verified totals change.</p>
+        </div>
+        <div class="impact reveal">
+          <div class="impact-item"><strong>50+</strong><span>Students supported with books and guides</span></div>
+          <div class="impact-item"><strong>38</strong><span>Students receiving gifts through Project WishBox</span></div>
+          <div class="impact-item"><strong>৳100k+</strong><span>Approximate value of books and guides distributed</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">04 / The journey</div><h2>Learning by<br>doing.</h2></div>
+          <p class="section-intro">A growing record of initiatives, lessons and milestones. Add dates and details as your journey develops.</p>
+        </div>
+        <div class="timeline reveal">
+          <div class="timeline-row"><time>2024 — Present</time><div><h3>Boi Dorkar Bhadeswar</h3><p>Building a student-focused volunteer initiative around books, educational guidance and practical support.</p></div></div>
+          <div class="timeline-row"><time>2025 — Present</time><div><h3>Community collaboration</h3><p>Supporting local initiatives and exploring ways for volunteers, institutions and supporters to work together.</p></div></div>
+          <div class="timeline-row"><time>Ongoing</time><div><h3>Learning, creating, improving</h3><p>Developing skills in communication, project planning, technology and community-led problem solving.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box reveal">
+          <div><div class="kicker">05 / Contact</div><h2>Let’s make something meaningful.</h2><p>Open to thoughtful conversations, collaborations, ideas and opportunities that create positive impact.</p></div>
+          <a class="button dark" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Adnan Khan Adib. Built with purpose.</span>
+      <span>Designed to grow with the journey ↗</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Reveal elements as they enter the viewport; accessible fallback for reduced motion.
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
